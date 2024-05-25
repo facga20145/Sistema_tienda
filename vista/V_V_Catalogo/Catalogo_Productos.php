@@ -33,8 +33,6 @@
         </div>
         <nav class="nav">
             <a href="carrito.php">Catálogo</a>
-            <a href="blog.html">Blog</a>
-            <a href="contacto.html">Contacto</a>
         </nav>
         <div class="header-search">
             <input type="text" placeholder="Buscar en STYLEGENIE" id="barra-busqueda">
