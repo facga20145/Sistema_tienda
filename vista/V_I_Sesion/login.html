@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - StyleGenie</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form action="../../controlador/C_I_Sesion.php" method="post">
+            <label for="nombreUsuario">Nombre de Usuario:</label>
+            <input type="text" id="nombreUsuario" name="nombreUsuario" required>
+
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" required>
+
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <p>¿No tienes cuenta? <a href="../V_R_Cliente/Register.html">Regístrate aquí</a></p>
+        <p>¿Eres dueño de una empresa? <a href="../V_R_Empresa/Register_empresa.html">Registra tu empresa aquí</a></p>
+    </div>
+</body>
+</html>
