@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>Registro de Empresa</h1>
-        <form action="/controladores/registerEmpresaController.php" method="post">
+        <form action="../../controlador/C_R_Empresa.php" method="post">
             <label for="nombreEmpresa">Nombre de la Empresa:</label>
             <input type="text" id="nombreEmpresa" name="nombreEmpresa" required>
 
@@ -21,6 +21,9 @@
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
+
+            <label for="contrasenha">Contraseña:</label>
+            <input type="password" id="contrasenha" name="contrasenha" required>
 
             <!-- Este campo está asumiendo que el usuarioID será manejado en el back-end, por ejemplo, asignado al usuario que crea la empresa. -->
             <!-- <input type="hidden" id="usuarioID" name="usuarioID" value="ID_Asignado"> -->
