@@ -17,7 +17,7 @@ class LoginEmpresaController {
             if ($empresaId) {
                 session_start();
                 $_SESSION['empresaID'] = $empresaId;
-                header("Location: ../vista/V_V_Catalogo/V_Principal/Catalogo_Productos.html");
+                header("Location: ../vista/V_R_Productos/index.html");
                 exit();
             } else {
                 echo "Error en las credenciales.";
