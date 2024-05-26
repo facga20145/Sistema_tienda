@@ -166,3 +166,33 @@ section {
     max-width: 500px; 
     border-radius: 10px;
 }
+/* Agrega esto a tu archivo CSS */
+
+.product-card {
+    position: relative;
+    background-color: #FFCC00; /* Color similar al de la segunda imagen */
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.delete-button {
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

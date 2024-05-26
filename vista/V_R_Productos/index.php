@@ -43,13 +43,18 @@
 
                     <label for="productCategory">Categoría del Producto:</label>
                     <select id="productCategory" name="productCategory" required>
-                        <option value="Electrónica">Electrónica</option>
+                        <option value="2">Electrónica</option>
+                    </select><br>
+
+                    <label for="Empresa">Empresa:</label>
+                    <select id="Empresa" name="Empresa" required>
+                        <option value="1">Patio</option>
                     </select><br>
 
                     <label for="productImage">Imagen del Producto:</label>
                     <input type="file" id="productImage" name="productImage" accept="image/*" required><br>
 
-                    <button type="submit">Agregar</button>
+                    <button type="submit" value="Guardar">Agregar</button>
                 </form>
             </div>
             <div id="productList">
@@ -75,9 +80,9 @@
 
                 <label for="editProductCategory">Categoría del Producto:</label>
                 <select id="editProductCategory" name="editProductCategory" required>
-                    <option value="Ropa">Ropa</option>
-                    <option value="Electrónica">Electrónica</option>
-                    <option value="Accesorios">Accesorios</option>
+                    <option value="1">Ropa</option>
+                    <option value="2">Electrónica</option>
+                    <option value="3">Accesorios</option>
                 </select><br>
 
                 <label for="editProductImage">Imagen del Producto:</label>
