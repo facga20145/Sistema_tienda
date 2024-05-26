@@ -1,11 +1,10 @@
 <?php
 require 'm_conexion.php';
 
-$query = "SELECT * FROM producto";
+$query = "SELECT * FROM producto WHERE estado = 1";
 $result = mysqli_query($conn, $query);
 
-$productos = [];
-
+$productos = array();
 while ($row = mysqli_fetch_assoc($result)) {
     $productos[] = $row;
 }

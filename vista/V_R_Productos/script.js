@@ -11,38 +11,23 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderProduct(product) {
         const productCard = document.createElement('div');
         productCard.className = 'product-card';
-        productCard.dataset.productId = product.productoID;
 
         productCard.innerHTML = `
-            <button class="delete-button">X</button>
             <div><strong>Nombre:</strong> ${product.nombreProducto}</div>
             <div><strong>Precio:</strong> $${product.precio}</div>
             <div><strong>Descripción:</strong> ${product.descripcionProducto}</div>
             <div><strong>Categoría:</strong> ${product.categoriaID}</div>
             <img src="${product.foto}" alt="Imagen del producto" style="width:100px;height:100px;margin-top:10px;">
             <button class="edit-button">Editar</button>
+            <button class="delete-button">X</button>
         `;
         productsContainer.appendChild(productCard);
-
-        // Manejar la eliminación del producto
-        productCard.querySelector('.delete-button').addEventListener('click', function() {
-            const productId = productCard.dataset.productId;
-            fetch(`eliminarproducto.php?id=${productId}`, { method: 'GET' })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        productCard.remove();
-                    } else {
-                        console.error(data.error);
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-        });
 
         productCard.querySelector('.edit-button').addEventListener('click', function() {
             editModal.style.display = 'block';
             currentProductCard = productCard;
 
+            document.getElementById('editProductId').value = product.productoID;
             document.getElementById('editProductName').value = product.nombreProducto;
             document.getElementById('editProductPrice').value = product.precio;
             document.getElementById('editProductDescription').value = product.descripcionProducto;
@@ -50,6 +35,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const editImageContainer = document.getElementById('editImageContainer');
             editImageContainer.innerHTML = `<img src="${product.foto}" alt="Imagen del producto" style="width:100px;height:100px;margin-top:10px;">`;
+        });
+
+        productCard.querySelector('.delete-button').addEventListener('click', function() {
+            const productId = product.productoID;
+            fetch(`eliminarproducto.php?productId=${productId}`, {
+                method: 'GET'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    productCard.remove();
+                } else {
+                    console.error(data.error);
+                }
+            })
+            .catch(error => console.error('Error:', error));
         });
     }
 
@@ -99,58 +100,26 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     saveChangesButton.addEventListener('click', function() {
-        const newProductName = document.getElementById('editProductName').value;
-        const newProductPrice = document.getElementById('editProductPrice').value;
-        const newProductDescription = document.getElementById('editProductDescription').value;
-        const newProductCategory = document.getElementById('editProductCategory').value;
-        const newProductImage = document.getElementById('editProductImage').files[0];
+        const formData = new FormData(editForm);
 
-        const reader = new FileReader();
-
-        reader.onload = function(e) {
-            currentProductCard.innerHTML = `
-                <div><strong>Nombre:</strong> ${newProductName}</div>
-                <div><strong>Precio:</strong> $${newProductPrice}</div>
-                <div><strong>Descripción:</strong> ${newProductDescription}</div>
-                <div><strong>Categoría:</strong> ${newProductCategory}</div>
-                <img src="${e.target.result}" alt="Imagen del producto" style="width:100px;height:100px;margin-top:10px;">
-                <button class="edit-button">Editar</button>
-            `;
-            currentProductCard.querySelector('.edit-button').addEventListener('click', function() {
-                editModal.style.display = 'block';
-                document.getElementById('editProductName').value = newProductName;
-                document.getElementById('editProductPrice').value = newProductPrice;
-                document.getElementById('editProductDescription').value = newProductDescription;
-                document.getElementById('editProductCategory').value = newProductCategory;
-
-                const editImageContainer = document.getElementById('editImageContainer');
-                editImageContainer.innerHTML = `<img src="${e.target.result}" alt="Imagen del producto" style="width:100px;height:100px;margin-top:10px;">`;
-            });
-        };
-
-        if (newProductImage) {
-            reader.readAsDataURL(newProductImage);
-        } else {
-            currentProductCard.innerHTML = `
-                <div><strong>Nombre:</strong> ${newProductName}</div>
-                <div><strong>Precio:</strong> $${newProductPrice}</div>
-                <div><strong>Descripción:</strong> ${newProductDescription}</div>
-                <div><strong>Categoría:</strong> ${newProductCategory}</div>
-                <button class="edit-button">Editar</button>
-            `;
-            currentProductCard.querySelector('.edit-button').addEventListener('click', function() {
-                editModal.style.display = 'block';
-                document.getElementById('editProductName').value = newProductName;
-                document.getElementById('editProductPrice').value = newProductPrice;
-                document.getElementById('editProductDescription').value = newProductDescription;
-                document.getElementById('editProductCategory').value = newProductCategory;
-
-                const editImageContainer = document.getElementById('editImageContainer');
-                editImageContainer.innerHTML = `<img src="" alt="Imagen del producto" style="width:100px;height:100px;margin-top:10px;">`;
-            });
-        }
-
-        editModal.style.display = 'none';
+        fetch('actualizarproducto.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                currentProductCard.querySelector('div:nth-child(1)').innerText = `Nombre: ${data.product.nombreProducto}`;
+                currentProductCard.querySelector('div:nth-child(2)').innerText = `Precio: $${data.product.precio}`;
+                currentProductCard.querySelector('div:nth-child(3)').innerText = `Descripción: ${data.product.descripcionProducto}`;
+                currentProductCard.querySelector('div:nth-child(4)').innerText = `Categoría: ${data.product.categoriaID}`;
+                currentProductCard.querySelector('img').src = data.product.foto;
+                editModal.style.display = 'none';
+            } else {
+                console.error(data.error);
+            }
+        })
+        .catch(error => console.error('Error:', error));
     });
 
     window.onclick = function(event) {

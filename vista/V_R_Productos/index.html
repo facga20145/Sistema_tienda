@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STYLEGENIE</title>
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
     <header>
@@ -69,6 +70,7 @@
         <div class="modal-content box">
             <h2>Editar Producto</h2>
             <form id="editForm" enctype="multipart/form-data">
+                <input type="hidden" id="editProductId" name="productId">
                 <label for="editProductName">Nombre del Producto:</label>
                 <input type="text" id="editProductName" name="editProductName" required><br>
                 
@@ -86,8 +88,7 @@
                 </select><br>
 
                 <label for="editProductImage">Imagen del Producto:</label>
-                <input type="file" id="editProductImage" name="editProductImage" accept="image/*" required><br>
-
+                <input type="file" id="editProductImage" name="editProductImage" accept="image/*"><br>
                 <div id="editImageContainer"></div>
                 
                 <button type="button" id="saveChanges">Guardar</button>

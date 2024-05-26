@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $categoriaID = $_POST['productCategory'];
     $empresaID = $_POST['Empresa'];
     $image = '';
+    $estado = 1; // Default value for new products
 
     if (isset($_FILES["productImage"])) {
         $file = $_FILES["productImage"];
@@ -25,49 +26,46 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $carpeta = "fotos/";
 
         if ($tipo != 'image/jpg' && $tipo != 'image/jpeg' && $tipo != 'image/png' && $tipo != 'image/gif') {
-            echo json_encode(["error" => "Error, el archivo no es una imagen"]);
+            echo json_encode(["success" => false, "error" => "El archivo no es una imagen"]);
             exit;
         } else if ($size > 3 * 1024 * 1024) {
-            echo json_encode(["error" => "Error, el tamaño máximo permitido es 3MB"]);
+            echo json_encode(["success" => false, "error" => "El tamaño máximo permitido es 3MB"]);
             exit;
         } else {
             $src = $carpeta . $nombre;
             if (move_uploaded_file($ruta_provisional, $src)) {
                 $image = $src;
             } else {
-                echo json_encode(["error" => "Error al mover el archivo."]);
+                echo json_encode(["success" => false, "error" => "Error al mover el archivo."]);
                 exit;
             }
         }
     }
 
-    $query = "INSERT INTO producto (categoriaID, empresaID, nombreProducto, descripcionProducto, precio, foto) VALUES (?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO producto (categoriaID, empresaID, nombreProducto, descripcionProducto, precio, foto, estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, 'iissds', $categoriaID, $empresaID, $nombreProducto, $descripcion, $precio, $image);
+    mysqli_stmt_bind_param($stmt, 'iissdsi', $categoriaID, $empresaID, $nombreProducto, $descripcion, $precio, $image, $estado);
 
     if (mysqli_stmt_execute($stmt)) {
-        $productID = mysqli_insert_id($conn);
-        $response = [
-            "success" => true,
-            "product" => [
-                "productID" => $productID,
-                "categoriaID" => $categoriaID,
-                "empresaID" => $empresaID,
-                "nombreProducto" => $nombreProducto,
-                "descripcionProducto" => $descripcion,
-                "precio" => $precio,
-                "foto" => $image
-            ]
+        $productID = mysqli_insert_id($conn); // Obtener el ID del producto insertado
+        $producto = [
+            "productoID" => $productID,
+            "nombreProducto" => $nombreProducto,
+            "precio" => $precio,
+            "descripcionProducto" => $descripcion,
+            "categoriaID" => $categoriaID,
+            "foto" => $image,
+            "empresaID" => $empresaID,
+            "estado" => $estado
         ];
-        echo json_encode($response);
+        echo json_encode(["success" => true, "product" => $producto]);
     } else {
-        echo json_encode(["error" => "Error: " . mysqli_stmt_error($stmt)]);
+        echo json_encode(["success" => false, "error" => "Error: " . mysqli_stmt_error($stmt)]);
     }
 
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
 } else {
-    echo json_encode(["error" => "Método no permitido"]);
+    echo json_encode(["success" => false, "error" => "Método no permitido"]);
 }
 ?>
-
