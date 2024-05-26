@@ -15,7 +15,7 @@
     <meta property="og:image" content="">
 
     <!--Estilos-->
-    <link rel="stylesheet" href="StyleTienda_Ropa.css">
+    <link rel="stylesheet" href="Estilos/StyleTienda_Ropa.css">
     <link rel="icon" href="ruta/a/favicon.ico"> <!--icon-->
     <link rel="apple-touch-icon" href="ruta/a/icono-movil.png"> <!--icon de móvil-->
     <meta name="theme-color" content="#FFFF00"> <!--color de barra de móvil-->
@@ -33,15 +33,20 @@
         </div>
         <nav class="nav">
             <a href="carrito.php">Catálogo</a>
+            <a href="blog.html">Blog</a>
+            <a href="contacto.html">Contacto</a>
         </nav>
         <div class="header-search">
-            <input type="text" placeholder="Buscar en STYLEGENIE" id="barra-busqueda">
-            <button id="boton-buscar"><img src="img/search.svg" alt="Buscar"></button>
+            <input type="text" placeholder="Buscar en STYLEGENIE">
+            <button><img src="img/search.svg" alt="Buscar"></button>
         </div>
         <div class="header-options">
-            <a href="login.html">Iniciar Sesión</a>
+            <a href="LoginIngreso.php">Iniciar Sesión</a>
             <a href="favoritos.html"><img src="img/heart.svg" alt="Favoritos"></a>
-            <a href="carrito.html"><img src="img/shopping-cart.svg" alt="Carrito de compras"><div>0</div></a>
+    <a class="boton-menu boton-carrito" href="./carrito.php">
+                            <i class="bi bi-cart-fill"></i> Carrito <span id="numerito" class="numerito">0</span>
+                        </a>
+
         </div>
     </header>
 
@@ -85,11 +90,6 @@
                     <li>
                         <button id="pantalones" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Pantalones</button>
                     </li>
-                    <li>
-                        <a class="boton-menu boton-carrito" href="./carrito.php">
-                            <i class="bi bi-cart-fill"></i> Carrito <span id="numerito" class="numerito">0</span>
-                        </a>
-                    </li>
                 </ul>
             </nav>
             <footer>
@@ -113,6 +113,5 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="Scripts/main.js"></script>
     <script src="Scripts/menu.js"></script>
-    <script src="Scripts/busqueda.js"></script>
 </body>
 </html>

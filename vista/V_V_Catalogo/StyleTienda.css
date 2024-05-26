@@ -1,285 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 
-@import url(https://fonts.googleapis.com/css?family=Noto+Sans);
-
 :root {
-    --clr-main:   #d4ac0d   ;
-    --clr-main-light:  #232120  ;
-    --clr-white: #000;
-    --clr-gray: #3d83c9 ;
+    --clr-main: #4b33a8;
+    --clr-main-light: #785ce9;
+    --clr-white: #ececec;
+    --clr-gray: #e2e2e2;
     --clr-red: #961818;
 }
 
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Rubik', sans-serif;
 }
-
-.header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 10vh;
-    padding: 1vh;
-    background-color: #f2f9fd;
-    border-bottom: 1px solid #1b81ae;
-    color: black;
-    display: flex;
-    justify-content: space-around;
-    z-index: 1000; /* Asegura que el header esté siempre en la parte superior */
-}
-
-/* Agrega un margen superior al contenido principal para que no quede oculto detrás del header */
-.wrapper, main {
-    margin-top: 10vh;
-}
-
-/*header-logo*/
-.header-logo{
-    width: 20%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.header-logo > img{
-    width: 50px;
-    height: 50px;
-}
-
-.header-logo > h1{
-    color: #102f41;
-    margin-left: 15px;
-}
-
-/*navegacion*/
-.nav{
-    width: 25%;
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;   
-}
-
-.nav > a{   
-    color: black;
-}
-
-.nav > a:hover{
-    text-decoration: underline;
-}
-
-/*search*/
-
-.header-search{
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.header-search > input[type="text"]{
-    width: 70%;
-    height: 70%;
-    border: 1px solid #1C274C;
-    border-radius: 20px;
-    padding-left: 10px;
-    padding-right: 35px;
-}
-
-.header-search > button{
-    width: 7%;
-    height: 50%;
-    background-color: white;
-    border-radius: 70px;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    right: 68px;
-}
-
-.header-search img{
-    height: 100%;
-}
-
-/*opciones*/
-.header-options{
-    width: 25%;
-    height: 100%;
-    padding: 1vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.header-options a:nth-child(1){
-    width: 60%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    
-}
-
-.header-options a:nth-child(3){
-    width: 15%;
-    height: 100%;
-    display: flex;
-    margin: 60px;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-   padding: 2em;
-}
-
-
-
-
-.header-options .boton-menu {
-    background-color: transparent;
-    border: 0;
-    color: var(--clr-white);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-weight: 600;
-    padding: 1rem;
-    font-size: .85rem;
-    width: 100%;
-}
-
-.header-options .boton-menu.active {
-    background-color: var(--clr-white);
-    color: var(--clr-main);
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    position: relative;
-}
-
-.header-options .boton-menu.active::before {
-    content: '';
-    position: absolute;
-    width: 1rem;
-    height: 2rem;
-    bottom: 100%;
-    right: 0;
-    background-color: transparent;
-    border-bottom-right-radius: .5rem;
-    box-shadow: 0 1rem 0 var(--clr-white);
-}
-
-.header-options .boton-menu.active::after {
-    content: '';
-    position: absolute;
-    width: 1rem;
-    height: 2rem;
-    top: 100%;
-    right: 0;
-    background-color: transparent;
-    border-top-right-radius: .5rem;
-    box-shadow: 0 -1rem 0 var(--clr-white);
-}
-
-.header-options .boton-menu > i.bi-hand-index-thumb-fill,
-.header-options .boton-menu > i.bi-hand-index-thumb {
-    transform: rotateZ(90deg);
-}
-
-.header-options .boton-carrito {
-    margin-top: 8px;
-}
-
-.header-options  .numerito {
-    background-color: var(--clr-white);
-    color: var(--clr-main);
-    padding: .15rem .25rem;
-    border-radius: .25rem;
-}
-
-.header-options  .boton-carrito.active .numerito {
-    background-color: var(--clr-main);
-    color: var(--clr-white);
-}
-
-.header-options .texto-footer {
-    color: var(--clr-main-light);
-    font-size: .85rem;
-}
-
-/* Estilos para las redes sociales */
-.aside-redes {
-    position: fixed;
-    z-index: 2000; /* Asegura que estén sobre otros elementos */
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #1C274C;
-    width: 40px;
-    height: 128px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 0; /* Añadido para un mejor espaciado */
-}
-
-.aside-redes a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0; /* Añadido para un mejor espaciado */
-}
-
-.facebook {
-    width: 32px;
-    height: 32px;
-}
-
-.instagram {
-    width: 24px;
-    height: 24px;
-}
-
-.tiktok {
-    width: 24px;
-    height: 24px;
-}
-
-/* Estilos para el botón de WhatsApp */
-.aside-wsp {
-    position: fixed;
-    top: 50%; /* Centra verticalmente en relación con el viewport */
-    transform: translateY(-50%); /* Ajusta para centrar correctamente */
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: none;
-    background-color: #5BD066;
-    z-index: 2000; 
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-}
-
-.aside-wsp img {
-    width: 30px;
-    height: 30px;
-}
-
-
-
-
 
 h1, h2, h3, h4, h5, h6, p, a, input, textarea, ul {
     margin: 0;
@@ -522,7 +256,7 @@ main {
     display: flex;
     background-color: var(--clr-gray);
     padding: 1rem;
-    color: var (--clr-main);
+    color: var(--clr-main);
     text-transform: uppercase;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
@@ -551,8 +285,6 @@ main {
 .disabled {
     display: none;
 }
-
-
 
 /*** MEDIA QUERIES ***/
 
@@ -654,26 +386,10 @@ main {
 
 }
 
+
+
 @media screen and (max-width: 400px) {
     .contenedor-productos {
         grid-template-columns: 1fr;
     }
 }
-
-
-/* Contactar*/
-.footer{
-
-    background: #283f80;
-    color: white;
-    margin: 0;
-    padding: 0;
-}
-
-.footer  .Unico{
-    color: var(--clr-main);
-    text-align: center;
-    padding: 0 30px 0 30px;
-    padding-top: 4px;
-}
-
