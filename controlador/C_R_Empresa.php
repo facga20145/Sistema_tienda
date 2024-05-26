@@ -29,7 +29,7 @@ class RegistroController {
                 $this->EmpresaModel->insertarEmpresa($nombreEmpresa, $direccion, $telefono, $email,$contrasena);
 
                 // Redireccionar al usuario a la página de login tras el registro exitoso
-                header("Location: ../vista/V_R_Empresa/Empresa_login.html");
+                header("Location: ../vista/V_R_Empresa/Empresa_login.php");
                 exit();
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();

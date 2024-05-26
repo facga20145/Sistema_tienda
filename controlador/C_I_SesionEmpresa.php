@@ -1,22 +1,22 @@
 <?php
 require_once '../modelo/M_I_SesionEmpresa.php';
 
-class LoginController {
-    private $usuarioModel;
+class LoginEmpresaController {
+    private $SEmpresaModel;
 
     public function __construct() {
-        $this->usuarioModel = new UsuarioModel();
+        $this->SEmpresaModel = new SEmpresaModel();
     }
 
     public function login() {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $nombreUsuario = $_POST['nombreUsuario'];
+            $email = $_POST['email'];
             $contraseña = $_POST['contrasena'];
 
-            $usuario_id = $this->usuarioModel->verificarUsuario($nombreUsuario, $contraseña);
-            if ($usuario_id) {
+            $empresaId = $this->SEmpresaModel->verificarUsuario($email, $contraseña);
+            if ($empresaId) {
                 session_start();
-                $_SESSION['usuarioID'] = $usuario_id;
+                $_SESSION['empresaID'] = $empresaId;
                 header("Location: ../vista/V_V_Catalogo/Catalogo_Productos.php");
                 exit();
             } else {
@@ -26,6 +26,6 @@ class LoginController {
     }
 }
 
-$controller = new LoginController();
+$controller = new LoginEmpresaController();
 $controller->login();
 ?>

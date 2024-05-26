@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STYLEGENIE</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">STYLEGENIE</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar en STYLEGENIE">
+            <button>Buscar</button>
+        </div>
+        <nav>
+            <a href="#">Contacto</a>
+            <a href="#">Iniciar Sesión</a>
+        </nav>
+    </header>
+    <main>
+        <aside>
+            <h2>Menú</h2>
+            <ul>
+                <li><a href="#" id="addProduct">Agregar Producto</a></li>
+                <li><a href="#" id="editProduct">Editar Producto</a></li>
+                <li><a href="#" id="viewProduct">Ver Productos</a></li>
+            </ul>
+        </aside>
+        <section id="content">
+            <h1>Bienvenido a STYLEGENIE</h1>
+            <div id="productForm" class="box">
+                <h2>Agregar Producto</h2>
+                <form id="form">
+                    <label for="productName">Nombre del Producto:</label>
+                    <input type="text" id="productName" name="productName" requiered><br>
+                    
+                    <label for="productPrice">Precio del Producto:</label>
+                    <input type="text" id="productPrice" name="productPrice" requiered><br>
+
+                    <label for="productDescription">Descripción del Producto:</label>
+                    <input type="text" id="productDescription" name="productDescription" requiered><br>
+
+                    <label for="productCategory">Categoría del Producto:</label>
+                    <select id="productCategory" name="productCategory" requiered>
+                        <option value="Ropa">Ropa</option>
+                        <option value="Electrónica">Electrónica</option>
+                        <option value="Accesorios">Accesorios</option>
+                    </select><br>
+
+                    <label for="productImage">Imagen del Producto:</label>
+                    <input type="file" id="productImage" name="productImage" accept="image/*" requiered><br>
+
+                    <button type="submit">Agregar</button>
+                </form>
+            </div>
+            <div id="productList">
+                <h2>Productos</h2>
+                <div id="productsContainer"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Edición -->
+    <div id="editModal" class="modal">
+        <div class="modal-content box">
+            <h2>Editar Producto</h2>
+            <form id="editForm">
+                <label for="editProductName">Nombre del Producto:</label>
+                <input type="text" id="editProductName" name="editProductName" requiered><br>
+                
+                <label for="editProductPrice">Precio del Producto:</label>
+                <input type="text" id="editProductPrice" name="editProductPrice" requiered><br>
+
+                <label for="editProductDescription">Descripción del Producto:</label>
+                <input type="text" id="editProductDescription" name="editProductDescription" requiered><br>
+
+                <label for="editProductCategory">Categoría del Producto:</label>
+                <select id="editProductCategory" name="editProductCategory" requiered>
+                    <option value="Ropa">Ropa</option>
+                    <option value="Electrónica">Electrónica</option>
+                    <option value="Accesorios">Accesorios</option>
+                </select><br>
+
+                <label for="editProductImage">Imagen del Producto:</label>
+                <input type="file" id="editProductImage" name="editProductImage" accept="image/*" requiered><br>
+
+                <div id="editImageContainer"></div>
+                
+                <button type="button" id="saveChanges">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

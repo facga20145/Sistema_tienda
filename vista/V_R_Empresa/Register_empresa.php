@@ -30,7 +30,7 @@
 
             <button type="submit">Registrar Empresa</button>
         </form>
-        <p>¿Ya estás registrado? <a href="Empresa_login.html">Inicia sesión aquí</a></p>
+        <p>¿Ya estás registrado? <a href="Empresa_login.php">Inicia sesión aquí</a></p>
     </div>
 </body>
 </html>
