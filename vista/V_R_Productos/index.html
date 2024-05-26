@@ -31,25 +31,23 @@
             <h1>Bienvenido a STYLEGENIE</h1>
             <div id="productForm" class="box">
                 <h2>Agregar Producto</h2>
-                <form id="form">
+                <form id="form" action="guardarproducto.php" method="post" enctype="multipart/form-data">
                     <label for="productName">Nombre del Producto:</label>
-                    <input type="text" id="productName" name="productName" requiered><br>
+                    <input type="text" id="productName" name="productName" required><br>
                     
                     <label for="productPrice">Precio del Producto:</label>
-                    <input type="text" id="productPrice" name="productPrice" requiered><br>
+                    <input type="text" id="productPrice" name="productPrice" required><br>
 
                     <label for="productDescription">Descripción del Producto:</label>
-                    <input type="text" id="productDescription" name="productDescription" requiered><br>
+                    <input type="text" id="productDescription" name="productDescription" required><br>
 
                     <label for="productCategory">Categoría del Producto:</label>
-                    <select id="productCategory" name="productCategory" requiered>
-                        <option value="Ropa">Ropa</option>
+                    <select id="productCategory" name="productCategory" required>
                         <option value="Electrónica">Electrónica</option>
-                        <option value="Accesorios">Accesorios</option>
                     </select><br>
 
                     <label for="productImage">Imagen del Producto:</label>
-                    <input type="file" id="productImage" name="productImage" accept="image/*" requiered><br>
+                    <input type="file" id="productImage" name="productImage" accept="image/*" required><br>
 
                     <button type="submit">Agregar</button>
                 </form>
@@ -65,25 +63,25 @@
     <div id="editModal" class="modal">
         <div class="modal-content box">
             <h2>Editar Producto</h2>
-            <form id="editForm">
+            <form id="editForm" enctype="multipart/form-data">
                 <label for="editProductName">Nombre del Producto:</label>
-                <input type="text" id="editProductName" name="editProductName" requiered><br>
+                <input type="text" id="editProductName" name="editProductName" required><br>
                 
                 <label for="editProductPrice">Precio del Producto:</label>
-                <input type="text" id="editProductPrice" name="editProductPrice" requiered><br>
+                <input type="text" id="editProductPrice" name="editProductPrice" required><br>
 
                 <label for="editProductDescription">Descripción del Producto:</label>
-                <input type="text" id="editProductDescription" name="editProductDescription" requiered><br>
+                <input type="text" id="editProductDescription" name="editProductDescription" required><br>
 
                 <label for="editProductCategory">Categoría del Producto:</label>
-                <select id="editProductCategory" name="editProductCategory" requiered>
+                <select id="editProductCategory" name="editProductCategory" required>
                     <option value="Ropa">Ropa</option>
                     <option value="Electrónica">Electrónica</option>
                     <option value="Accesorios">Accesorios</option>
                 </select><br>
 
                 <label for="editProductImage">Imagen del Producto:</label>
-                <input type="file" id="editProductImage" name="editProductImage" accept="image/*" requiered><br>
+                <input type="file" id="editProductImage" name="editProductImage" accept="image/*" required><br>
 
                 <div id="editImageContainer"></div>
                 
