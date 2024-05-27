@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STYLEGENIE</title>
     <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
     <header>
@@ -54,8 +53,9 @@
 
                     <label for="productImage">Imagen del Producto:</label>
                     <input type="file" id="productImage" name="productImage" accept="image/*" required><br>
+                    <img id="previewImage" src="" alt="Previsualización de la imagen" style="width:100px;height:100px;margin-top:10px; display:none;"><br>
 
-                    <button type="submit" value="Guardar">Agregar</button>
+                    <button type="submit">Agregar</button>
                 </form>
             </div>
             <div id="productList">

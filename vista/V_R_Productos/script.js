@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const editModal = document.getElementById('editModal');
     const editForm = document.getElementById('editForm');
     const saveChangesButton = document.getElementById('saveChanges');
+    const productImageInput = document.getElementById('productImage');
     const editProductImageInput = document.getElementById('editProductImage');
     let currentProductCard;
 
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         productCard.querySelector('.delete-button').addEventListener('click', function() {
             const productId = product.productoID;
-            fetch(`eliminarproducto.php?productId=${productId}`, {
+            fetch(`eliminarproducto.php?id=${productId}`, {
                 method: 'GET'
             })
             .then(response => response.json())
@@ -78,11 +79,29 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success) {
                 renderProduct(data.product);
                 form.reset();
+                const previewImage = document.getElementById('previewImage');
+                previewImage.src = ''; // Limpiar la previsualización
+                previewImage.style.display = 'none'; // Ocultar la previsualización
             } else {
                 console.error(data.error);
             }
         })
         .catch(error => console.error('Error:', error));
+    });
+
+    productImageInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            const previewImage = document.getElementById('previewImage');
+            previewImage.src = e.target.result;
+            previewImage.style.display = 'block'; // Mostrar la previsualización
+        };
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
     });
 
     editProductImageInput.addEventListener('change', function(event) {
