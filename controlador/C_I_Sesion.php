@@ -1,5 +1,5 @@
 <?php
-require_once '../modelo/M_I_SesionEmpresa.php';
+require_once '../modelo/M_I_Sesion.php';
 
 class LoginController {
     private $usuarioModel;
