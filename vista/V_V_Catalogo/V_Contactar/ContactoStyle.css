@@ -5,7 +5,10 @@
 body{
   height: 100%; 
   font-family: 'Noto Sans', sans-serif;
-  background-color: #3d83c9 ; 
+  background-color: #000000 ;
+  background-image: url(../../../img/fondo1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 
@@ -14,9 +17,9 @@ body{
   height: auto;
   margin: 80px auto;
   border-radius: 10px;  
-  padding-top: 30px;
-  padding-bottom: 20px;  
-  background-color: #fbfbfb; 
+  padding-top: 10px;
+  padding-bottom: 10px;  
+  background-color: #000000; 
   padding-left: 30px; 
 }
 
@@ -28,7 +31,7 @@ input{
   border-radius: 5px;  
   border-style: solid; 
   border-width: 1px; 
-  border-color: #ab4493; 
+  border-color: #000000; 
   margin-top: 10px;  
   padding-left: 10px;
   margin-bottom: 20px; 
@@ -42,7 +45,7 @@ textarea{
   border-radius: 5px;  
   border-style: solid; 
   border-width: 1px; 
-  border-color: #ab4493; 
+  border-color: #000000; 
   margin-top: 10px;  
   padding-left: 10px;
   margin-bottom: 20px; 
@@ -63,11 +66,11 @@ button{
   margin-bottom: 20px; 
   margin-top: 10px;   
   text-transform: uppercase;
-  background-color: #ab4493; 
-  border-color: #ab4493; 
+  background-color:#d3ab0b;;
   border-style: solid; 
   border-radius: 10px;  
-  width: 420px;   
+  width: 420px;
+  height: 70px;   
   cursor: pointer;
 }
 
@@ -78,34 +81,35 @@ button p{
 
 
 span{
-  color: #ab4493; 
+  color: #ffffff; 
 }
 
 
 .aviso{
   font-size: 13px;  
-  color: #0e0e0e;  
+  color: #8f8f8f; 
 }
 
 
 h1{
-  font-size: 39px;  
-  text-align: letf; 
+  font-size: 30px;  
+  text-align: center; 
   padding-bottom: 20px; 
-  color: #ab4493;
+  color:#d3ab0b;
+  font-weight: 600;
 }
 
 
 h3{
   font-size: 16px; 
   padding-bottom: 30px;
-  color: #0e0e0e;   
+  color: #8f8f8f;   
 }
 
 
 p{
   font-size: 14px; 
-  color: #0e0e0e; 
+  color:#d3ab0b;
 }
 
 
@@ -121,11 +125,11 @@ p{
 
 .formulario input:focus{
   outline:0;
-  border: 1px solid #97d848;
+  border: 1px solid #000000;
 }
 
 
 .formulario textarea:focus{
   outline:0;
-  border: 1px solid #97d848;
+  border: 1px solid #000000;
 }

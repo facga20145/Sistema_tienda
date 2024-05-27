@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STYLEGENIE</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
-        <div class="logo">STYLEGENIE</div>
+        <div class="logo">
+            <img src="../../img/Logo.png" alt="">
+            <h1>Stylegenie</h1>
+        </div>
         <div class="search-bar">
             <input type="text" placeholder="Buscar en STYLEGENIE">
-            <button>Buscar</button>
+            <button><img src="../../img/search.svg" alt=""></button>
         </div>
         <nav>
             <a href="#">Contacto</a>
@@ -21,41 +26,52 @@
     <main>
         <aside>
             <h2>Menú</h2>
+            <hr>
             <ul>
                 <li><a href="#" id="addProduct">Agregar Producto</a></li>
-                <li><a href="#" id="editProduct">Editar Producto</a></li>
-                <li><a href="#" id="viewProduct">Ver Productos</a></li>
             </ul>
         </aside>
         <section id="content">
-            <h1>Bienvenido a STYLEGENIE</h1>
+            <h2>Bienvenido a STYLEGENIE</h2>
             <div id="productForm" class="box">
                 <h2>Agregar Producto</h2>
                 <form id="form" action="guardarproducto.php" method="post" enctype="multipart/form-data">
-                    <label for="productName">Nombre del Producto:</label>
-                    <input type="text" id="productName" name="productName" required><br>
-                    
-                    <label for="productPrice">Precio del Producto:</label>
-                    <input type="text" id="productPrice" name="productPrice" required><br>
+                    <div class="column-1">
+                        <label for="productName">
+                            Nombre del Producto:
+                            <img src="../../img/producto.svg" alt="">
+                            <input type="text" id="productName" name="productName" required><br>
+                        </label>
+                        <label for="productPrice">
+                            Precio del Producto:
+                            <img src="../../img/precio.svg" alt="">
+                            <input type="text" id="productPrice" name="productPrice" required><br>
+                        </label>
+                        <label for="productDescription">
+                            Descripción del Producto:
+                            <img src="../../img/descript.svg" alt="">
+                            <input type="text" id="productDescription" name="productDescription" required>
+                        </label>
 
-                    <label for="productDescription">Descripción del Producto:</label>
-                    <input type="text" id="productDescription" name="productDescription" required><br>
+                        <label for="productCategory">Categoría del Producto:</label>
+                        <select id="productCategory" name="productCategory" required>
+                            <option value="2">Electrónica</option>
+                        </select>
+                    </div>
 
-                    <label for="productCategory">Categoría del Producto:</label>
-                    <select id="productCategory" name="productCategory" required>
-                        <option value="2">Electrónica</option>
-                    </select><br>
+                    <div class="column-2">
+                        <label for="Empresa">Empresa:</label>
+                        <select id="Empresa" name="Empresa" required>
+                            <option value="1">Patio</option>
+                        </select><br>
 
-                    <label for="Empresa">Empresa:</label>
-                    <select id="Empresa" name="Empresa" required>
-                        <option value="1">Patio</option>
-                    </select><br>
+                        <label for="productImage">Imagen del Producto:</label>
+                        <input type="file" id="productImage" name="productImage" accept="image/*" required>
+                        <img id="previewImage" src="" alt="Previsualización de la imagen"
+                            style="width:100px;height:100px;margin-top:10px; display:none;">
 
-                    <label for="productImage">Imagen del Producto:</label>
-                    <input type="file" id="productImage" name="productImage" accept="image/*" required><br>
-                    <img id="previewImage" src="" alt="Previsualización de la imagen" style="width:100px;height:100px;margin-top:10px; display:none;"><br>
-
-                    <button type="submit">Agregar</button>
+                        <button type="submit">Agregar</button>
+                    </div>
                 </form>
             </div>
             <div id="productList">
@@ -71,26 +87,30 @@
             <h2>Editar Producto</h2>
             <form id="editForm" enctype="multipart/form-data">
                 <input type="hidden" id="editProductId" name="productId">
-                <label for="editProductName">Nombre del Producto:</label>
-                <input type="text" id="editProductName" name="editProductName" required><br>
-                
-                <label for="editProductPrice">Precio del Producto:</label>
-                <input type="text" id="editProductPrice" name="editProductPrice" required><br>
+                <label>
+                    Nombre del Producto:
+                <input type="text"name="editProductName" required><br>
+                </label>
+                <label>
+                    Precio del Producto:
+                    <input type="text" name="editProductPrice" required><br>
+                </label>
+                <label>
+                    Descripción del Producto:
+                    <input type="text" id="editProductDescription" name="editProductDescription" required>
+                </label>
 
-                <label for="editProductDescription">Descripción del Producto:</label>
-                <input type="text" id="editProductDescription" name="editProductDescription" required><br>
-
-                <label for="editProductCategory">Categoría del Producto:</label>
-                <select id="editProductCategory" name="editProductCategory" required>
-                    <option value="1">Ropa</option>
-                    <option value="2">Electrónica</option>
-                    <option value="3">Accesorios</option>
-                </select><br>
-
+                <label for="editProductCategory">Categoría del Producto:
+                    <select id="editProductCategory" name="editProductCategory" required>
+                        <option value="1">Ropa</option>
+                        <option value="2">Electrónica</option>
+                        <option value="3">Accesorios</option>
+                    </select>
+                </label>
                 <label for="editProductImage">Imagen del Producto:</label>
                 <input type="file" id="editProductImage" name="editProductImage" accept="image/*"><br>
                 <div id="editImageContainer"></div>
-                
+
                 <button type="button" id="saveChanges">Guardar</button>
             </form>
         </div>
@@ -98,4 +118,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

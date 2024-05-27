@@ -8,22 +8,15 @@
 </head>
 <body>
     <div class="container">
-        <h1>Iniciar Sesión</h1>
-        <div class="container-logo">
-            <img src="../../img/Logo.png" alt="" class="logo">
-        </div>
+        <h1>Login</h1>
         <form action="../../controlador/C_I_SesionEmpresa.php" method="post">
-            <label>
-                Correo Electrónico:
-                <img src="../../img/email.svg" alt="" class="img-1">
-                <input type="email"name="email" placeholder="Ingrese su correo electrónico" required>
-            </label>
-            <label for="contrasena">
-                Contraseña:
-                <img src="../../img/lock.svg" alt="" class="img-2">
-                <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña" required>
-            </label>
-            <button type="submit">Ingresar<img src="../../img/login.svg" alt=""></button>
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" required>
+
+            <button type="submit">Iniciar Sesión</button>
         </form>
         <p>¿No tienes cuenta? <a href="../V_R_Empresa/Register_empresa.html">Regístrate aquí</a></p>
     </div>

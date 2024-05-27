@@ -4,7 +4,6 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    height: 100vh;
     background-color: #000000; /* Fondo negro */
 }
 
@@ -15,51 +14,90 @@ header {
     align-items: center;
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #b7c9d9;
+    height: 5vh;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.search-bar {
     display: flex;
     align-items: center;
 }
 
+.logo > h1{
+    font-size: 32px;
+    font-weight: bold;
+    color: #505d7d;
+}
+
+.logo > img{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.search-bar {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
 .search-bar input {
-    padding: 5px;
+    width: 70%;
+    padding: 5px 10px;
     font-size: 16px;
+    border-radius: 15px;
+    background-color: white;
+    
 }
 
 .search-bar button {
     padding: 5px 10px;
     margin-left: 5px;
     font-size: 16px;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: white;
+    left: 260px;
+    cursor: pointer;
+}
+
+.search-bar > button > img{
+    width: 25px;
+    height: 25px;
 }
 
 nav a {
     margin-left: 20px;
     text-decoration: none;
-    color: black;
+    color: #505d7d;
     font-size: 16px;
 }
 
 main {
     display: flex;
     flex: 1;
+    min-height: 92vh;
+    height: 100%;
 }
 
 aside {
-    background-color: #FFCC00; /* Color similar al de la segunda imagen */
+    background-color: #a8c0d1; /* Color similar al de la segunda imagen */
     color: black;
-    width: 200px;
+    width: 170px;
     padding: 20px;
 }
 
 aside h2 {
-    font-size: 18px;
+    font-size: 28px;
+    margin-top: 0;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 aside ul {
@@ -79,18 +117,28 @@ aside ul li a {
     display: block;
     padding: 10px;
     border-radius: 5px;
+    text-align: center;
 }
 
 aside ul li a:hover {
-    background-color: black;
-    color: #FFCC00;
+    background-color: #7a91b1;
+    color: #2b323b;
 }
 
 section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     flex: 1;
-    background-color: #333; /* Fondo oscuro */
+    background-color: #efefef; /* Fondo oscuro */
     padding: 20px;
-    color: white;
+    color: black;
+}
+
+section > h2{
+    align-self: flex-start;
+    margin-left: 50px;
+    margin-bottom: 30px;
 }
 
 #productForm, #productList {
@@ -99,12 +147,84 @@ section {
 
 #form {
     display: flex;
+    flex-direction: row;
+
+}
+
+.column-1,
+.column-2{
+    width: 50%;
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
+}
+
+label{
+    margin-left: 32px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+label > img{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 38px;
+    left: 10px;
+}
+
+button[type="submit"]{
+    align-self: flex-end;
 }
 
 #form input, #form button, #form select {
     margin-bottom: 10px;
+    height: 30px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    outline: none;
+}
+
+#form input{
+    box-sizing: border-box;
+    padding-left: 50px;
+    height: 34px;
+    margin-top: 15px;
+    width: 90%;
+}
+
+#form select{
+    height: 34px;
+    padding-left: 15px;
+}
+
+#form button{
+    background-color: #a8c0d1;
+    height: 40px;
+    color: white;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#form button:hover{
+    background-color: #94b0c6;
+}
+
+#editForm button{
+    background-color: #a8c0d1;
+    width: 50%;
+    height: 40px;
+    color: white;
+    font-size: 18px;
+    align-self: center;
+}
+
+#productImage{
+    margin-top: 0 !important;
+    width: 80% !important;
 }
 
 #productsContainer {
@@ -113,7 +233,7 @@ section {
 }
 
 .product-card {
-    background-color: #FFCC00; /* Color similar al de la segunda imagen */
+    background-color: #505d7d; /* Color similar al de la segunda imagen */
     padding: 10px;
     border-radius: 5px;
     margin: 10px;
@@ -135,16 +255,25 @@ section {
 }
 
 .box {
-    background-color: #444;
+    display: block;
+    background-color: #8290ae;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    width: 300px;
+    width: 700px;
     margin-bottom: 20px;
+    margin-left: 50px;
+    align-self: flex-start;
+}
+
+.box > h2{
+    margin-top: 5px;
+    margin-top: 0px;
+    margin-top: 5px;
 }
 
 .modal {
-    display: none; 
+    display: none;
     position: fixed; 
     z-index: 1; 
     left: 0;
@@ -152,7 +281,6 @@ section {
     width: 100%; 
     height: 100%; 
     overflow: auto; 
-    background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0,0.4); 
     padding-top: 60px;
 }
@@ -170,7 +298,7 @@ section {
 
 .product-card {
     position: relative;
-    background-color: #FFCC00; /* Color similar al de la segunda imagen */
+    background-color: #505d7d; /* Color similar al de la segunda imagen */
     padding: 10px;
     border-radius: 5px;
     margin: 10px;
@@ -195,4 +323,40 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#productList > h2{
+    font-size: 28px;
+}
+
+.modal-content{
+    background-color: #8290ae;
+}
+
+.column-2{
+    justify-content: flex-start;
+}
+
+.column-2 img{
+    align-self: center;
+    border: 1px solid black;
+}
+
+#editForm{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#editForm label{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0;
+}
+
+#editForm input,
+#editForm select{
+    width: 50%;
+    height: 30px;
 }
