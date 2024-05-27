@@ -31,25 +31,29 @@
             <h1>Bienvenido a STYLEGENIE</h1>
             <div id="productForm" class="box">
                 <h2>Agregar Producto</h2>
-                <form id="form">
+                <form id="form" action="guardarproducto.php" method="post" enctype="multipart/form-data">
                     <label for="productName">Nombre del Producto:</label>
-                    <input type="text" id="productName" name="productName" requiered><br>
+                    <input type="text" id="productName" name="productName" required><br>
                     
                     <label for="productPrice">Precio del Producto:</label>
-                    <input type="text" id="productPrice" name="productPrice" requiered><br>
+                    <input type="text" id="productPrice" name="productPrice" required><br>
 
                     <label for="productDescription">Descripción del Producto:</label>
-                    <input type="text" id="productDescription" name="productDescription" requiered><br>
+                    <input type="text" id="productDescription" name="productDescription" required><br>
 
                     <label for="productCategory">Categoría del Producto:</label>
-                    <select id="productCategory" name="productCategory" requiered>
-                        <option value="Ropa">Ropa</option>
-                        <option value="Electrónica">Electrónica</option>
-                        <option value="Accesorios">Accesorios</option>
+                    <select id="productCategory" name="productCategory" required>
+                        <option value="2">Electrónica</option>
+                    </select><br>
+
+                    <label for="Empresa">Empresa:</label>
+                    <select id="Empresa" name="Empresa" required>
+                        <option value="1">Patio</option>
                     </select><br>
 
                     <label for="productImage">Imagen del Producto:</label>
-                    <input type="file" id="productImage" name="productImage" accept="image/*" requiered><br>
+                    <input type="file" id="productImage" name="productImage" accept="image/*" required><br>
+                    <img id="previewImage" src="" alt="Previsualización de la imagen" style="width:100px;height:100px;margin-top:10px; display:none;"><br>
 
                     <button type="submit">Agregar</button>
                 </form>
@@ -65,26 +69,26 @@
     <div id="editModal" class="modal">
         <div class="modal-content box">
             <h2>Editar Producto</h2>
-            <form id="editForm">
+            <form id="editForm" enctype="multipart/form-data">
+                <input type="hidden" id="editProductId" name="productId">
                 <label for="editProductName">Nombre del Producto:</label>
-                <input type="text" id="editProductName" name="editProductName" requiered><br>
+                <input type="text" id="editProductName" name="editProductName" required><br>
                 
                 <label for="editProductPrice">Precio del Producto:</label>
-                <input type="text" id="editProductPrice" name="editProductPrice" requiered><br>
+                <input type="text" id="editProductPrice" name="editProductPrice" required><br>
 
                 <label for="editProductDescription">Descripción del Producto:</label>
-                <input type="text" id="editProductDescription" name="editProductDescription" requiered><br>
+                <input type="text" id="editProductDescription" name="editProductDescription" required><br>
 
                 <label for="editProductCategory">Categoría del Producto:</label>
-                <select id="editProductCategory" name="editProductCategory" requiered>
-                    <option value="Ropa">Ropa</option>
-                    <option value="Electrónica">Electrónica</option>
-                    <option value="Accesorios">Accesorios</option>
+                <select id="editProductCategory" name="editProductCategory" required>
+                    <option value="1">Ropa</option>
+                    <option value="2">Electrónica</option>
+                    <option value="3">Accesorios</option>
                 </select><br>
 
                 <label for="editProductImage">Imagen del Producto:</label>
-                <input type="file" id="editProductImage" name="editProductImage" accept="image/*" requiered><br>
-
+                <input type="file" id="editProductImage" name="editProductImage" accept="image/*"><br>
                 <div id="editImageContainer"></div>
                 
                 <button type="button" id="saveChanges">Guardar</button>

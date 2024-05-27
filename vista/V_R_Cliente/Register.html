@@ -1,52 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - StyleGenie</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Registro de Empresa - StyleGenie</title>
+    <link rel="stylesheet" href="style.css"> <!-- Asegúrate de que la ruta al CSS sea correcta -->
 </head>
+
 <body>
     <div class="container">
         <h1>Registro de Usuario</h1>
+        <div class="container-logo">
+            <img src="../../img/Logo.png" alt="" class="logo">
+        </div>
         <form action="../../controlador/C_R_Cliente.php" method="post">
-            <label for="dni">DNI:</label>
-            <input type="text" id="dni" name="dni" required>
+            <div id="form-parte1" class="form-1">
+                <div class="column-1">
+                    <label>
+                        Nombres:
+                        <img src="../../img/user.svg" alt="" class="img-1">
+                        <input type="text" name="nombre" placeholder="Ingrese sus nombres" required>
+                    </label>
 
-            <label for="nombreUsuario">Nombre de Usuario:</label>
-            <input type="text" id="nombreUsuario" name="nombreUsuario" required>
+                    <label>
+                        Apellidos:
+                        <img src="../../img/user.svg" alt="" class="img-1">
+                        <input type="text" name="apellido" placeholder="Ingrese sus apellidos" required>
+                    </label>
 
-            <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" required>
+                    <label>
+                        Teléfono:
+                        <img src="../../img/telefono.svg" alt="" class="img-1">
+                        <input type="tel" name="telefono" placeholder="Ingrese su telefono" required>
+                    </label>
+                    <label>
+                        Correo electrónico:
+                        <img src="../../img/email.svg" alt="" class="img-1">
+                        <input type="email" name="correo" placeholder="Ingrese su correo electrónico" required>
+                </div>
+                <div class="column-2">
+                    </label>
+                    <label>
+                        Dirección:
+                        <img src="../../img/direccion.svg" alt="" class="img-1">
+                        <input type="text" name="direccion" placeholder="Ingrese su direccion" required>
+                    </label>
+                    <label for="genero">
+                        Género:
+                    </label>                   
+                    <select id="genero" name="genero">
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                    <label>
+                        Fecha de Nacimiento:
+                        <input type="date" name="fechaNacimiento" required>
+                    </label>
+                    <label>
+                        DNI:
+                        <img src="../../img/dni.svg" alt="" class="img-1">
+                        <input type="text" name="dni" placeholder="Ingrese tu DNI" required>
+                    </label>
+                    
+                </div>
+                
+            </div>
+            <button type="button" id="siguiente">Siguiente</button>
+            <div id="form-parte2" class="form-2" style="display: none;">
+                <label>
+                    Nombre de Usuario:
+                    <img src="../../img/user.svg" alt="" class="img-1">
+                    <input type="text" name="nombreUsuario" placeholder="Ingrese su nombre de usuario" required>
+                </label>
 
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required>
-
-            <label for="telefono">Teléfono:</label>
-            <input type="text" id="telefono" name="telefono">
-
-            <label for="correo">Correo Electrónico:</label>
-            <input type="email" id="correo" name="correo" required>
-
-            <label for="direccion">Dirección:</label>
-            <input type="text" id="direccion" name="direccion">
-
-            <label for="genero">Género:</label>
-            <select id="genero" name="genero">
-                <option value="Masculino">Masculino</option>
-                <option value="Femenino">Femenino</option>
-                <option value="Otro">Otro</option>
-            </select>
-
-            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-            <input type="date" id="fechaNacimiento" name="fechaNacimiento">
-
-            <button type="submit">Registrar</button>
+                <label>
+                    Contraseña:
+                    <img src="../../img/lock.svg" alt="" class="img-1">
+                    <input type="password" name="contrasena" placeholder="Ingrese su contraseña" required>
+                </label>
+                <button type="button" id="regresar">Regresar</button>
+                <button type="submit">Registrar Cliente<img src="../../img/login.svg" alt=""></button>
+                <p>¿Ya tienes cuenta? <a href="../V_I_Sesion/login.html">Inicia sesión aquí</a></p>
+            </div>
         </form>
-        <p>¿Ya tienes cuenta? <a href="../V_I_Sesion/login.html">Inicia sesión aquí</a></p>
     </div>
+    <script src="cambio.js"></script>
 </body>
+
 </html>
