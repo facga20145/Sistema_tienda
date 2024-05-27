@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once '../modelo/M_R_Empresa.php'; // Asegúrate de que la ruta al modelo es correcta.
+require_once '../modelo/M_R_Empresa.php';
 
 class RegistroController {
     private $EmpresaModel;
@@ -29,7 +29,7 @@ class RegistroController {
                 $this->EmpresaModel->insertarEmpresa($nombreEmpresa, $direccion, $telefono, $email,$contrasena);
 
                 // Redireccionar al usuario a la página de login tras el registro exitoso
-                header("Location: ../vista/V_R_Empresa/Empresa_login.php");
+                header("Location: ../vista/V_R_Empresa/Empresa_login.html");
                 exit();
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();

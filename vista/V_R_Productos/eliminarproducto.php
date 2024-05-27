@@ -1,5 +1,5 @@
 <?php
-require 'm_conexion.php';
+require '../../modelo/m_conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
     $productID = $_GET['id'];

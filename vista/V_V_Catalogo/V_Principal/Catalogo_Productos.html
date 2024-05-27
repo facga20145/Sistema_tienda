@@ -28,34 +28,25 @@
     <!-- Encabezado -->
     <header class="header">
         <div class="header-logo">
-            <img src="Imagenes/Logo.png" alt="Logo de STYLEGENIE">
+            <img src="../../../img/Logo.png" alt="Logo de STYLEGENIE">
             <h1>STYLEGENIE</h1>
         </div>
         <nav class="nav">
-            <a href="carrito.php">Catálogo</a>
+            <a href="../V_Contactar/Contactar.html">Contacto</a>
         </nav>
         <div class="header-search">
-            <input type="text" placeholder="Buscar en STYLEGENIE" id="barra-busqueda">
-            <button id="boton-buscar"><img src="img/search.svg" alt="Buscar"></button>
+            <input type="text" placeholder="Buscar en STYLEGENIE">
+            <button><img src="../../../img/search.svg" alt="Buscar"></button>
         </div>
         <div class="header-options">
-            <a href="login.html">Iniciar Sesión</a>
-            <a href="favoritos.html"><img src="img/heart.svg" alt="Favoritos"></a>
-            <a href="carrito.html"><img src="img/shopping-cart.svg" alt="Carrito de compras"><div>0</div></a>
+            <!--<a href="/vista/V_I_Sesion/login.html">Iniciar Sesión</a>-->
+            
+    <a class="boton-menu boton-carrito" href="../V_Carrito/V_Carrito.html">
+                            <i class="bi bi-cart-fill"></i> Carrito <span id="numerito" class="numerito">0</span>
+                        </a>
+
         </div>
     </header>
-
-    <!-- Redes Sociales -->
-    <aside class="aside-redes">
-        <a href="https://www.facebook.com/Stylegenie"><img class="facebook" src="img/facebook.svg" alt="Facebook"></a>
-        <a href="https://www.instagram.com/Stylegenie"><img class="instagram" src="img/instagram.svg" alt="Instagram"></a>
-        <a href="https://www.tiktok.com/@Stylegenie"><img class="tiktok" src="img/tiktok.svg" alt="TikTok"></a>
-    </aside>
-
-    <aside class="aside-wsp">
-        <a href="https://wa.me/123456789"><img src="img/whatsapp-svgrepo-com.svg" alt="WhatsApp"></a>
-    </aside>
-
     <!-- Catálogo de productos -->
     <div class="wrapper">
         <header class="header-mobile">
@@ -85,11 +76,6 @@
                     <li>
                         <button id="pantalones" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i> Pantalones</button>
                     </li>
-                    <li>
-                        <a class="boton-menu boton-carrito" href="./carrito.php">
-                            <i class="bi bi-cart-fill"></i> Carrito <span id="numerito" class="numerito">0</span>
-                        </a>
-                    </li>
                 </ul>
             </nav>
             <footer>
@@ -106,13 +92,13 @@
 
     <!-- Pie de página -->
     <footer class="footer">
-        <p>&copy;2024, STYLEGENIE</p>
+       
+        <p class="Unico">&copy;2024, STYLEGENIE</p>
     </footer>
-    
     <!-- Scripts -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="Scripts/main.js"></script>
-    <script src="Scripts/menu.js"></script>
-    <script src="Scripts/busqueda.js"></script>
+    <script src="main.js"></script>
+    <script src="menu.js"></script>
+    <script src="/vista/V_V_Catalogo/productos.json"></script>
 </body>
 </html>

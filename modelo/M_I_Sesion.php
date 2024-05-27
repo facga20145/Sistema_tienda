@@ -9,13 +9,13 @@ class UsuarioModel {
     }
 
     public function verificarUsuario($nombreUsuario, $contraseña) {
-        $stmt = $this->conn->prepare("SELECT usuarioID, contrasena FROM usuario WHERE nombreUsuario = ?");
+        $stmt = $this->conn->prepare("SELECT clienteID, contrasena FROM cliente WHERE nombreUsuario = ?");
         $stmt->bind_param("s", $nombreUsuario);
         $stmt->execute();
         $result = $stmt->get_result();
         if ($usuario = $result->fetch_assoc()) {
             if (password_verify($contraseña, $usuario['contrasena'])) {
-                return $usuario['usuarioID'];  // Retorna el ID del usuario si la contraseña es correcta
+                return $usuario['clienteID'];  // Retorna el ID del usuario si la contraseña es correcta
             }
         }
         return null;  // Retorna null si la autenticación falla

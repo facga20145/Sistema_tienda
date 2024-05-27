@@ -16,8 +16,8 @@ class LoginController {
             $usuario_id = $this->usuarioModel->verificarUsuario($nombreUsuario, $contraseña);
             if ($usuario_id) {
                 session_start();
-                $_SESSION['usuarioID'] = $usuario_id;
-                header("Location: ../vista/V_V_Catalogo/Catalogo_Productos.php");
+                $_SESSION['clienteID'] = $usuario_id;
+                header("Location: ../vista/V_V_Catalogo/V_Principal/Catalogo_Productos.html");
                 exit();
             } else {
                 echo "Error en las credenciales.";

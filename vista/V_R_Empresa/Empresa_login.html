@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - StyleGenie</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>Iniciar Sesión</h1>
+        <div class="container-logo">
+            <img src="../../img/Logo.png" alt="" class="logo">
+        </div>
+        <form action="../../controlador/C_I_SesionEmpresa.php" method="post">
+            <label>
+                Correo Electrónico:
+                <img src="../../img/email.svg" alt="" class="img-1">
+                <input type="email"name="email" placeholder="Ingrese su correo electrónico" required>
+            </label>
+            <label for="contrasena">
+                Contraseña:
+                <img src="../../img/lock.svg" alt="" class="img-2">
+                <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña" required>
+            </label>
+            <button type="submit">Ingresar<img src="../../img/login.svg" alt=""></button>
+        </form>
+        <p>¿No tienes cuenta? <a href="../V_R_Empresa/Register_empresa.html">Regístrate aquí</a></p>
+    </div>
+</body>
+</html>

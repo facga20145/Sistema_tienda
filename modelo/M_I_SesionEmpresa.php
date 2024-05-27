@@ -15,7 +15,7 @@ class SEmpresaModel {
         $result = $stmt->get_result();
         if ($empresa = $result->fetch_assoc()) {
             if (password_verify($contraseña, $empresa['contrasena'])) {
-                return $empresa['empresaID'];  // Retorna el ID del usuario si la contraseña es correcta
+                return $empresa['empresaID'];
             }
         }
         return null;  // Retorna null si la autenticación falla

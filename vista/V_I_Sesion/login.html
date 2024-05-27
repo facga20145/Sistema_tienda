@@ -1,25 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - StyleGenie</title>
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Login - Stelygenie</title>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Login</h1>
-        <form action="../../controlador/C_I_Sesion.php" method="post">
-            <label for="nombreUsuario">Nombre de Usuario:</label>
-            <input type="text" id="nombreUsuario" name="nombreUsuario" required>
 
-            <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" required>
+    <main>
 
-            <button type="submit">Iniciar Sesión</button>
+        <form method="post" action="../../controlador/C_I_Sesion.php">
+            <div class="conteiner-login">
+
+                <figure class="conteiner-portada">
+                    <div class="container-logo"><img class="logo" src="../../img/Logo.png" alt=""></div>
+                    <img src="../../img/portadaLogin.png" alt="portada.png">
+                </figure>
+                <div class="login">
+
+                    <h1>Bienvenido a Stylegenie!</h1>
+                    <p>Ingresa a tu cuenta</p>
+                    <div class="form">
+                        <div class="div-user">
+                            <label>
+                                Username:
+                                <img src="../../img/user.svg" alt="">
+                                <input type="text" name="nombreUsuario" placeholder="Ingrese su nombre de usuario" required>
+                            </label>
+                        </div>
+                        <div class="div-pass">
+                            <label>Password:
+                                <img src="../../img/lock.svg" alt="">
+                                <input type="password" name="contrasena" placeholder="Ingrese su contraseña" required>
+                            </label>
+                        </div>
+                        <button class="btn" type="submit">Ingresar</button>
+                        <p>¿No tienes cuenta? <a href="../V_R_Cliente/Register.html">Regístrate aquí</a></p>
+                        <p>¿Eres dueño de una empresa? <a href="../V_R_Empresa/Empresa_login.html">Registra tu empresa
+                                aquí</a></p>
+                    </div>
+
+                </div>
+            </div>
         </form>
-        <p>¿No tienes cuenta? <a href="../V_R_Cliente/Register.html">Regístrate aquí</a></p>
-        <p>¿Eres dueño de una empresa? <a href="../V_R_Empresa/Empresa_login.php">Registra tu empresa aquí</a></p>
-    </div>
+
+    </main>
+
 </body>
+
 </html>

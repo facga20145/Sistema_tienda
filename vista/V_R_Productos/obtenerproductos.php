@@ -1,5 +1,5 @@
 <?php
-require 'm_conexion.php';
+require '../../modelo/m_conexion.php';
 
 $query = "SELECT * FROM producto WHERE estado = 1";
 $result = mysqli_query($conn, $query);
