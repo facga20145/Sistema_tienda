@@ -106,7 +106,7 @@ button {
     transition: background-color 0.3s;
     margin-top: 27px;
     align-self: center;
-    width: 80%;
+    width: 60%;
     height: 45px;
     display: flex;
     justify-content: center;
@@ -197,4 +197,19 @@ a:hover {
 .column-2{
     display: flex;
     flex-direction: column;
+}
+
+.btn-cerrar {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #007BFF;
+    transition: background-color 0.3s;
 }

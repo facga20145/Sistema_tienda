@@ -212,3 +212,12 @@ input:valid{
     width: 70%;
     height: 70%;
 }
+
+.link-p > a{
+    color: #007BFF;
+    transition: background-color 0.3s;
+}
+
+.link-p > a:hover{
+    color: #0056b3;
+}
