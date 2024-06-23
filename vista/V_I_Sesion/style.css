@@ -10,10 +10,12 @@ main{
     width: 100%;
     height: 100vh;
     padding: 20px;
-    background-color: #efefef;   
+    /*efefef*/
+    background-color: #f7f1e3;   
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 h1{
@@ -27,12 +29,13 @@ h1{
     height: 500px;
     background-color: #ffff; 
     display: flex;
-    border-radius: 50px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    border-radius: 38px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);  
 }
 
 .conteiner-portada{
     width: 400px;
+    position: relative;
 }
 
 .conteiner-portada > img{
@@ -40,6 +43,7 @@ h1{
     width: 500px;
     height: 500px;
     z-index: 0;
+    border-radius: 38px;
 }
 
 /*cabecera*/
@@ -71,6 +75,7 @@ h1{
     position: relative;
     background-color: #ffff;
     width: 400px;
+    border-radius: 0 38px 38px 0;
     padding: 30px 40px 30px;
     z-index: 1;
 }
@@ -197,8 +202,9 @@ input:valid{
     width: 150px;
     height: 150px;
     position: absolute;
-    top: 240px;
-    left: 420px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -211,13 +217,4 @@ input:valid{
     z-index: 1;
     width: 70%;
     height: 70%;
-}
-
-.link-p > a{
-    color: #007BFF;
-    transition: background-color 0.3s;
-}
-
-.link-p > a:hover{
-    color: #0056b3;
 }
