@@ -9,12 +9,13 @@ body {
 }
 
 header {
-    background-color: #e5ebf1;
+    background-color: #050c55;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: white;
 }
 
 .logo {
@@ -25,6 +26,7 @@ header {
 .search-bar {
     display: flex;
     align-items: center;
+    color: white;
 }
 
 .search-bar input {
@@ -51,10 +53,11 @@ main {
 }
 
 aside {
-    background-color: #FFCC00; /* Color similar al de la segunda imagen */
+    background-color: #ffffff; /* Color similar al de la segunda imagen */
     color: black;
     width: 200px;
     padding: 20px;
+    border-radius: 2px solid black;
 }
 
 aside h2 {
@@ -79,22 +82,24 @@ aside ul li a {
     display: block;
     padding: 10px;
     border-radius: 5px;
+    font-weight: bold;
 }
 
 aside ul li a:hover {
-    background-color: black;
-    color: #FFCC00;
+    background-color: #050c55;
+    color: #ffffff;
 }
 
 section {
     flex: 1;
-    background-color: #333; /* Fondo oscuro */
+    background-color: #ffffff; /* Fondo oscuro */
     padding: 20px;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
-#productForm, #productList {
+#productForm{
     margin-bottom: 20px;
+    background-color: #050c55;
 }
 
 #form {
