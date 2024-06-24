@@ -3,9 +3,9 @@
 @import url(https://fonts.googleapis.com/css?family=Noto+Sans);
 
 :root {
-    --clr-main:   #4c4c4b   ;
+    --clr-main:   #050c55   ;
     --clr-main-light:  #232120  ;
-    --clr-white: #dad7d7;
+    --clr-white: #ffffff;
     --clr-gray: #3d83c9 ;
     --clr-red: #961818;
 }
@@ -26,7 +26,7 @@
     width: 100%;
     height: 10vh;
     padding: 1vh;
-    background-color: #f2f9fd;
+    background-color: #ffffff;
     border-bottom: 1px solid #1b81ae;
     color: black;
     display: flex;
@@ -664,7 +664,7 @@ main {
 /* Contactar*/
 .footer{
 
-    background: #283f80;
+    background: #050c55;
     color: white;
     margin: 0;
     padding: 0;
