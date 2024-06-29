@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomendación por IA</title>
+    <link rel="stylesheet" href="../V_Principal/StyleTienda_Ropa.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-logo">
+            <img src="../../../img/Logo.png" alt="Logo de STYLEGENIE">
+            <h1>STYLEGENIE</h1>
+        </div>
+        <nav class="nav">
+            <a href="../V_Contactar/Contactar.html">Contacto</a>
+            <a href="../V_Principal/Catalogo_Productos.html">Volver al Catálogo</a>
+        </nav>
+        <div class="header-search">
+            <input type="text" placeholder="Buscar en STYLEGENIE">
+            <button><img src="../../../img/search.svg" alt="Buscar"></button>
+        </div>
+    </header>
+    <main>
+        <section id="recomendacion">
+            <h2>Recomendación de Productos</h2>
+            <form id="recomendacionForm">
+                <label for="image-upload">Subir tu Foto</label>
+                <input type="file" id="image-upload" accept="image/*">
+                <button type="button" id="recomendar-btn">Obtener Recomendaciones</button>
+            </form>
+            <div id="recomendaciones"></div> <!-- Contenedor para recomendaciones -->
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="recomendacion.js"></script>
+</body>
+</html>
