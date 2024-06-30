@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Información del Cliente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form action="/SISTEMA_TIENDA/modelo/RegistroEnvio.php" method="POST">
+        <label for="nombreCompleto">Nombre Completo:</label><br>
+        <input type="text" id="nombreCompleto" name="nombreCompleto" placeholder="Juan Pérez" required><br><br>
+
+        <label for="correoElectronico">Correo Electrónico:</label><br>
+        <input type="email" id="correoElectronico" name="correoElectronico" placeholder="juan.perez@example.com" required><br><br>
+
+        <label for="numeroTelefono">Número de Teléfono:</label><br>
+        <input type="tel" id="numeroTelefono" name="numeroTelefono" placeholder="+123 456 7890" required><br><br>
+
+        <label for="metodoEnvio">Método de Envío Preferido:</label><br>
+        <select id="metodoEnvio" name="metodoEnvio" required>
+            <option value="estandar">Estándar</option>
+            <option value="rapido">Rápido</option>
+            <option value="express">Express</option>
+        </select><br><br>
+
+        <label for="notasAdicionales">Notas Adicionales:</label><br>
+        <textarea id="notasAdicionales" name="notasAdicionales" placeholder="Dejar el paquete con el conserje si no estoy en casa." rows="4" cols="50"></textarea><br><br>
+        <button type="submit" id="registrar-envio-btn">Registrar Envío</button>
+    </form>
+   
+
+</body>
+</html>
