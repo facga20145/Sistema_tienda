@@ -14,7 +14,7 @@ class RegistroController {
                 // Recolectar y sanitizar los datos del formulario
                 $dni = htmlspecialchars($_POST['dni']);
                 $nombreUsuario = htmlspecialchars($_POST['nombreUsuario']);
-                $contrasena = $_POST['contrasena'];  // La contraseña será hasheada en el modelo
+                $contrasena = $_POST['contrasena'];
                 $nombre = htmlspecialchars($_POST['nombre']);
                 $apellido = htmlspecialchars($_POST['apellido']);
                 $telefono = htmlspecialchars($_POST['telefono']);
@@ -23,11 +23,11 @@ class RegistroController {
                 $genero = htmlspecialchars($_POST['genero']);
                 $fechaNacimiento = htmlspecialchars($_POST['fechaNacimiento']);
 
-                // Llamar al método en el modelo para insertar el cliente
+                // Llamar al método en el modelo para insertar el cliente y crear el carrito
                 $this->personaModel->insertarCliente($dni, $nombreUsuario, $contrasena, $nombre, $apellido, $telefono, $correo, $direccion, $genero, $fechaNacimiento);
 
                 // Redireccionar al usuario a la página de login tras el registro exitoso
-                header("Location: ../Vista/V_I_Sesion/login.html");
+                header("Location: ../vista/V_I_Sesion/login.html");
                 exit();
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();

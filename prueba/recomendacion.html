@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomendación de Productos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Recomendación de Productos</h1>
+        <div class="form-group">
+            <label for="image-upload">Subir tu Foto</label>
+            <input type="file" id="image-upload">
+        </div>
+        <button id="recomendar-btn">Obtener Recomendaciones</button>
+        <div id="recomendaciones"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="recomendacion.js"></script>
+</body>
+</html>

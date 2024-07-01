@@ -8,6 +8,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const editProductImageInput = document.getElementById('editProductImage');
     let currentProductCard;
 
+    // Inicializar el modelo de Teachable Machine
+    const modelURL = '../../my_model/model.json';
+    const metadataURL = '../../my_model/metadata.json';
+    let model, maxPredictions;
+
+    async function init() {
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+        console.log("Model loaded");
+    }
+
+    init();
+
     // Función para renderizar un producto
     function renderProduct(product) {
         const productCard = document.createElement('div');
@@ -17,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div><strong>Nombre:</strong> ${product.nombreProducto}</div>
             <div><strong>Precio:</strong> $${product.precio}</div>
             <div><strong>Descripción:</strong> ${product.descripcionProducto}</div>
-            <div><strong>Categoría:</strong> ${product.categoriaID}</div>
+            <div><strong>Categoría:</strong> ${getCategoriaNombre(product.categoriaID)}</div>
             <img src="${product.foto}" alt="Imagen del producto" style="width:100px;height:100px;margin-top:10px;">
             <button class="edit-button">Editar</button>
             <button class="delete-button">X</button>
@@ -60,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             data.forEach(product => {
+                product.categoria = getCategoriaNombre(product.categoriaID);
                 renderProduct(product);
             });
         })
@@ -68,26 +82,62 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        const formData = new FormData(form);
+        // Subir y analizar la imagen antes de guardar
+        const archivo = document.getElementById('productImage').files[0];
+        const reader = new FileReader();
 
-        fetch('guardarproducto.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                renderProduct(data.product);
-                form.reset();
-                const previewImage = document.getElementById('previewImage');
-                previewImage.src = ''; // Limpiar la previsualización
-                previewImage.style.display = 'none'; // Ocultar la previsualización
-            } else {
-                console.error(data.error);
-            }
-        })
-        .catch(error => console.error('Error:', error));
+        reader.onloadend = async function () {
+            const img = new Image();
+            img.src = reader.result;
+            img.onload = async function () {
+                const prediction = await model.predict(img);
+                console.log(prediction);
+
+                // Ahora que tenemos la predicción, procedemos a guardar el producto
+                const formData = new FormData(form);
+                formData.append('prediccion', JSON.stringify(prediction));
+                formData.append('foto', img.src); // Añadir la imagen como base64
+
+                fetch('guardarproducto.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        data.product.categoria = getCategoriaNombre(data.product.categoriaID);
+                        renderProduct(data.product);
+                        guardarProductoEnLocalStorage(data.product); // Guardar en localStorage
+                        form.reset();
+                        const previewImage = document.getElementById('previewImage');
+                        previewImage.src = ''; // Limpiar la previsualización
+                        previewImage.style.display = 'none'; // Ocultar la previsualización
+                    } else {
+                        console.error(data.error);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            };
+        };
+
+        if (archivo) {
+            reader.readAsDataURL(archivo);
+        } else {
+            alert("Por favor selecciona una foto.");
+        }
     });
+
+    function guardarProductoEnLocalStorage(producto) {
+        let productosGuardados = JSON.parse(localStorage.getItem('productos')) || [];
+        let productoReducido = {
+            nombre: producto.nombreProducto,
+            precio: producto.precio,
+            imagen: producto.foto,
+            categoria: getCategoriaNombre(producto.categoriaID) // Guardar el nombre de la categoría
+        };
+        productosGuardados.push(productoReducido);
+        localStorage.setItem('productos', JSON.stringify(productosGuardados));
+    }
 
     productImageInput.addEventListener('change', function(event) {
         const file = event.target.files[0];
@@ -131,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentProductCard.querySelector('div:nth-child(1)').innerText = `Nombre: ${data.product.nombreProducto}`;
                 currentProductCard.querySelector('div:nth-child(2)').innerText = `Precio: $${data.product.precio}`;
                 currentProductCard.querySelector('div:nth-child(3)').innerText = `Descripción: ${data.product.descripcionProducto}`;
-                currentProductCard.querySelector('div:nth-child(4)').innerText = `Categoría: ${data.product.categoriaID}`;
+                currentProductCard.querySelector('div:nth-child(4)').innerText = `Categoría: ${getCategoriaNombre(data.product.categoriaID)}`;
                 currentProductCard.querySelector('img').src = data.product.foto;
                 editModal.style.display = 'none';
             } else {
@@ -146,4 +196,22 @@ document.addEventListener('DOMContentLoaded', function() {
             editModal.style.display = 'none';
         }
     };
+
+    function getCategoriaNombre(categoriaID) {
+        switch (parseInt(categoriaID)) {
+            case 1:
+                return 'Polo';
+            case 2:
+                return 'Zapatilla-Zapato';
+            default:
+                return 'Desconocida';
+        }
+    }
 });
+
+function resetForm() {
+    document.getElementById('archivo').value = '';
+    document.getElementById('nombre').value = '';
+    document.getElementById('precio').value = '';
+    document.getElementById('categoria').value = '';
+}

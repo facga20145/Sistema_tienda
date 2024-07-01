@@ -39,9 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img class="producto-imagen" src="../../V_R_Productos/${producto.foto}" alt="${producto.nombreProducto}">
                 <div class="producto-detalles">
                     <h3 class="producto-titulo">${producto.nombreProducto}</h3>
-                    <p class="producto-precio">$${producto.precio}</p>
-                    <p class="producto-descripcion">${producto.descripcionProducto}</p>
-                    <p class="producto-categoria">${producto.categoriaID}</p>
+                    <p class="producto-precio">Precio: $${producto.precio}</p>
+                    <p class="producto-descripcion">Descripcion: ${producto.descripcionProducto}</p>
+                    <p class="producto-categoria">Categoría: ${producto.categoriaID}</p>
                     <button class="producto-agregar" id="${producto.productoID}">Agregar</button>
                 </div>
             `;

@@ -55,7 +55,8 @@
 
                         <label for="productCategory">Categoría del Producto:</label>
                         <select id="productCategory" name="productCategory" required>
-                            <option value="2">Ropa</option>
+                            <option value="1">Polo</option>
+                            <option value="2">Zapatillas-Zapato</option>
                         </select>
                     </div>
 
@@ -102,19 +103,28 @@
 
                 <label for="editProductCategory">Categoría del Producto:
                     <select id="editProductCategory" name="editProductCategory" required>
-                        <option value="2">Ropa</option>
+                        <option value="1">Polo</option>
+                        <option value="2">Zapatillas-Zapato</option>
                     </select>
                 </label>
                 <label for="editProductImage">Imagen del Producto:</label>
                 <input type="file" id="editProductImage" name="editProductImage" accept="image/*"><br>
                 <div id="editImageContainer"></div>
 
+                <label for="editEmpresa">Empresa:</label>
+                <select id="editEmpresa" name="editEmpresa" required>
+                    <option value="1">Patio</option>
+                </select><br>
+
                 <button type="button" id="saveChanges">Guardar</button>
             </form>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="guardar_bd.js"></script>
+    <script src="guardar_localstorage.js"></script>
 </body>
 
 </html>
