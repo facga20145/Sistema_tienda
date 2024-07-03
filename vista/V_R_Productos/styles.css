@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    background-color: #e5ebf1;
+    background-color: #050c55;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,17 +26,17 @@ header {
 .logo > h1{
     font-size: 32px;
     font-weight: bold;
-    color: #505d7d;
+    color: #ffffff;
 }
 
 .logo > img{
     width: 50px;
     height: 50px;
-    margin-right: 10px;
+    margin-right: 50px;
 }
 
 .search-bar {
-    width: 30%;
+    width: 33%;
     display: flex;
     align-items: center;
     position: relative;
@@ -75,7 +75,7 @@ header {
 nav a {
     margin-left: 20px;
     text-decoration: none;
-    color: #505d7d;
+    color: #ffffff;
     font-size: 16px;
 }
 
@@ -87,7 +87,7 @@ main {
 }
 
 aside {
-    background-color: #a8c0d1; /* Color similar al de la segunda imagen */
+    background-color: #050c55; /* Color similar al de la segunda imagen */
     color: black;
     width: 170px;
     padding: 20px;
@@ -98,6 +98,7 @@ aside h2 {
     margin-top: 0;
     margin-bottom: 10px;
     text-align: center;
+    color: white;
 }
 
 aside ul {
@@ -110,7 +111,7 @@ aside ul li {
 }
 
 aside ul li a {
-    color: black;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 16px;
     transition: background-color 0.3s, color 0.3s;
@@ -121,8 +122,8 @@ aside ul li a {
 }
 
 aside ul li a:hover {
-    background-color: #7a91b1;
-    color: #2b323b;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 section {
@@ -358,5 +359,5 @@ button[type="submit"]{
 #editForm input,
 #editForm select{
     width: 50%;
-    height: 30px;
+    height: 30px;
 }

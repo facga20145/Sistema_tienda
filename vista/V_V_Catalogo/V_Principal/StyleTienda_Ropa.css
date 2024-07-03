@@ -3,9 +3,9 @@
 @import url(https://fonts.googleapis.com/css?family=Noto+Sans);
 
 :root {
-    --clr-main:   #4c4c4b   ;
+    --clr-main:   #050c55 ;
     --clr-main-light:  #232120  ;
-    --clr-white: #dad7d7;
+    --clr-white: #ffffff;
     --clr-gray: #3d83c9 ;
     --clr-red: #961818;
 }
