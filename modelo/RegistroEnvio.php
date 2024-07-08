@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($sql->execute() === TRUE) {
         echo "Registro completado exitosamente.<br>";
         // Redirigir al usuario a la página de registro
-        echo "<script>alert('Registro completado exitosamente'); window.location.href = '/RegistreEntrega/view/MV_Pago/index.html';</script>";
+        echo "<script>alert('Registro completado exitosamente'); window.location.href = 'http://localhost/Sistema_tienda/vista/MV_Pago/index.html';</script>";
     } else {
         // Mostrar el error en caso de que la consulta falle
         echo "Error al registrar: " . $conn->error . "<br>";

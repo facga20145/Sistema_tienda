@@ -132,8 +132,4 @@ function comprarCarrito() {
     contenedorCarritoProductos.classList.add("disabled");
     contenedorCarritoAcciones.classList.add("disabled");
     contenedorCarritoComprado.classList.remove("disabled");
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> aeaa91bd3b9e65cabd155ca7591047b0da16df8c

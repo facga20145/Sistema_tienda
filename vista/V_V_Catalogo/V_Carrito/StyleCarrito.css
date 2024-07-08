@@ -2,7 +2,7 @@
 
 :root {
     --clr-main: #050c55;
-    --clr-main-light: #ffffff;
+    --clr-main-light: #785ce9;
     --clr-white: #ececec;
     --clr-gray: #e2e2e2;
     --clr-red: #961818;
@@ -125,7 +125,7 @@ aside {
 }
 
 .texto-footer {
-    color: var(--clr-main-light);
+    color: white;
     font-size: .85rem;
 }
 

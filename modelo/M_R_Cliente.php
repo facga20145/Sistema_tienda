@@ -8,11 +8,7 @@ class PersonaModel {
         $this->conn = $GLOBALS['conn'];
     }
 
-<<<<<<< HEAD
-    // Método para insertar un nuevo cliente en la base de datos
-=======
     // Método para insertar un nuevo cliente en la base de datos y crear un carrito para el cliente
->>>>>>> aeaa91bd3b9e65cabd155ca7591047b0da16df8c
     public function insertarCliente($dni, $nombreUsuario, $contrasena, $nombre, $apellido, $telefono, $correo, $direccion, $genero, $fechaNacimiento) {
         // Hashear la contraseña
         $contrasenaHash = password_hash($contrasena, PASSWORD_DEFAULT);
@@ -23,14 +19,6 @@ class PersonaModel {
         // Puntos de fidelidad iniciales
         $puntosFidelidad = 0; 
 
-<<<<<<< HEAD
-        // Preparar la consulta para insertar en la tabla cliente
-        $stmtCliente = $this->conn->prepare("INSERT INTO cliente (dni, nombreUsuario, contrasena, puntosFidelidad, fechaRegistro, nombre, apellido, telefono, correo, direccion, genero, fechaNacimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmtCliente->bind_param("sssissssssss", $dni, $nombreUsuario, $contrasenaHash, $puntosFidelidad, $fechaRegistro, $nombre, $apellido, $telefono, $correo, $direccion, $genero, $fechaNacimiento);
-        
-        if (!$stmtCliente->execute()) {
-            throw new Exception("Error al insertar cliente: " . $stmtCliente->error);
-=======
         // Iniciar la transacción
         $this->conn->begin_transaction();
 
@@ -62,7 +50,6 @@ class PersonaModel {
             // Revertir la transacción en caso de error
             $this->conn->rollback();
             throw $e;
->>>>>>> aeaa91bd3b9e65cabd155ca7591047b0da16df8c
         }
     }
 }
